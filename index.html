@@ -121,14 +121,16 @@ hr{border:0;border-top:1px solid var(--line);margin:40px 0}
   content: "";
   position: absolute;
   inset: 0;
-  background: url("soft-grain-seamless-2048.png") center / 512px 512px repeat;
+  /* Keep size near the PNG's native period (1024–2048). Smaller sizes average
+     the grain away on 1× screens (2048 → 512 drops visible contrast hard). */
+  background: url("soft-grain-seamless-2048.png") center / 1024px 1024px repeat;
   mix-blend-mode: soft-light;
   opacity: 0.35;
   pointer-events: none;
 }</code></pre>
   <ul class="steps">
     <li><strong>Strength</strong>: raise or lower <code>opacity</code> (0.15 subtle, 0.45 heavy).</li>
-    <li><strong>Scale</strong>: change <code>background-size</code>. 256px looks coarse; 1024px looks fine.</li>
+    <li><strong>Scale</strong>: use <code>background-size: 1024px</code> (or 2048px for 1:1). Going much smaller than the tile period softens the grain into a flat veil.</li>
     <li><strong>Mode</strong>: <code>overlay</code> is punchier; <code>soft-light</code> is closer to photographic grain.</li>
     <li><strong>Performance</strong>: a tiled PNG is cheaper than a live SVG <code>feTurbulence</code> filter on large full-screen areas.</li>
   </ul>
@@ -148,14 +150,14 @@ hr{border:0;border-top:1px solid var(--line);margin:40px 0}
 
   <div class="cta" id="pack">
     <h2>Need the other six overlays?</h2>
-    <p>The free pair is from <strong>GRAIN + NOISE</strong>: eight transparent overlays (soft, fine, coarse, film mono, paper fiber, dust, halftone, scanlines), 2K–4K, same commercial license, seamless for CSS tiling — <strong>$3</strong>. Want matching grainy mesh wallpapers too? MESHGRAIN is 100 backgrounds + the overlays for <strong>$6</strong>.</p>
+    <p>The free pair is from <strong>GRAIN + NOISE</strong>: eight transparent overlays (soft, fine, coarse, film mono, paper fiber, dust, halftone, scanlines), 2K–4K, same commercial license, seamless for CSS tiling — <strong>$3</strong> (about $0.38 each). Want matching mesh wallpapers too? <strong>MESHGRAIN</strong> is 100 backgrounds (4K + mobile) plus the overlays for <strong>$6</strong> — under $0.06 per background, not a single wallpaper download.</p>
     <a class="btn" href="https://bharatankh.gumroad.com/l/grain">GRAIN + NOISE — 8 overlays, $3</a>
     <a class="btn alt" href="https://bharatankh.gumroad.com/l/meshgrain">MESHGRAIN — 100 backgrounds, $6</a>
     <p class="note" style="margin-top:16px;margin-bottom:0">Also free: <a href="https://arnavjhajharia.github.io/grainy-gradients/grain-texture/">grain texture live preview</a> · <a href="https://arnavjhajharia.github.io/grainy-gradients/">grainy gradient wallpapers</a> · <a href="https://arnavjhajharia.github.io/ogkit/">ogkit</a> · <a href="https://arnavjhajharia.github.io/favikit/">Favikit</a> · <a href="https://arnavjhajharia.github.io/appshot/">AppShot</a></p>
   </div>
 
   <hr>
-  <p class="note">Last checked 2026-11-03. Files match the live GRAIN pack on Gumroad (seamless 1024px tile period).</p>
+  <p class="note">Last checked 2026-11-03. Free files are GRAIN <strong>v1.1</strong> (toroidal seams + visible grain). If the Gumroad zip still says v1, ask for a re-download after the seller uploads v1.1 — the free samples here are the corrected quality.</p>
 </main>
 </body>
 </html>
